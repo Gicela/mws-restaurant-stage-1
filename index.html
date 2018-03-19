@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta name="description" content="Udacity Nonadegree Restaurant project" />
@@ -24,18 +24,23 @@
   </header>
 
   <main id="maincontent" role="main">
-    <section id="map-container">
+    <section id="map-container"  tabindex="0">
       <div id="map"></div>
     </section>
     <section>
-      <div class="filter-options">
+      <div class="filter-options" role="menu" >
         <h2>Filter Results</h2>
+        <label for="neighborhoods-select">
         <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+       
           <option value="all">All Neighborhoods</option>
         </select>
+      </label>
+      <label for="cuisines-select">
         <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
+      </label>
       </div>
       <ul id="restaurants-list"></ul>
     </section>

@@ -4,7 +4,7 @@
 body,td,th,p{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
-	color: #333;
+	color: #000;
 	line-height: 1.5;
 }
 body {
@@ -15,7 +15,7 @@ body {
 ul, li {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
-	color: #333;
+	color: #000;
 }
 a {
 	color: orange;
@@ -273,7 +273,7 @@ nav h1 a {
   margin: 0 0 10px;
 }
 #restaurant-hours td {
-  color: #666;
+  color: #000000;
 }
 /* ====================== Layout using flexbox====================== */
 #maincointainer {
