@@ -145,19 +145,22 @@ class DBHelper {
   static urlForRestaurant(restaurant) {
     return (`./restaurant.html?id=${restaurant.id}`);
   }
-
+  /**
+   * Restaurant page image tag.
+   */
+  
+   static imageAltForRestaurant(restaurant){
+     return(`${restaurant.altag}`)
+   }
   /**
    * Restaurant image URL.
    */
   static imageUrlForRestaurant(restaurant) {
-    /** if (screen.width >= 840){ */
-      var pic = "srcset="
-      var altag = "title = "
-      var altagtext ="this a great image"
-      return (`/images/${restaurant.photograph_medium}`   + " " + pic  +`/images/${restaurant.photograph_medium} 1x, /images/${restaurant.photograph} 2x`   + " " +  altag  + altagtext );
-     /** } else {
-      return (`/images/${restaurant.photograph_medium}`);    
-    }  */
+    if (screen.width >= 840 ) {
+      return (`/images/${restaurant.photograph}`);
+      } else {
+      return (`/images/${restaurant.photograph_medium}`);
+    }  
   } 
 
   /**
