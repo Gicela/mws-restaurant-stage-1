@@ -298,9 +298,13 @@ section {
   } 
 
   .filter-options {
-    height: 100%;
+    height: 120px;
     margin-bottom: 5px;
   }
+  .filter-options h2 {
+    padding: 5px 0;
+  }
+
   #neighborhoods-select {
     margin-top: 5px;
   }
