@@ -38,7 +38,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 }
 #footer {
@@ -144,7 +144,6 @@ nav h1 a {
   border: 2px solid #ccc;
   font-family: Arial,sans-serif;
   margin: 15px;
-  min-height: 380px;
   padding: 0 30px 25px;
   text-align: left;
   width: 270px;
@@ -154,10 +153,9 @@ nav h1 a {
   display: block;
   margin: 0;
   max-width: 100%;
-  min-height: 248px;
   min-width: 100%;
 }
-#restaurants-list li h1 {
+#restaurants-list li h2 {
   color: #f18200;
   font-family: Arial,sans-serif;
   font-size: 14pt;
@@ -292,32 +290,62 @@ section {
   width: 100%;
   order:2;
 }
-@media screen and (min-width: 700px) {
-
-  #restaurants-list {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    order:3
-  }
+@media screen and (max-width: 520px){
 
   #restaurants-list li {
-    margin-right: 10px;
-    width: calc((100% - 20px)/3);
+    margin: 10px 10px;
+    width: calc(90% - 20px);
+  } 
+
+  .filter-options {
+    height: 100%;
+    margin-bottom: 5px;
+  }
+  #neighborhoods-select {
+    margin-top: 5px;
   }
 
+  #cuisines-select,
+  #neighborhoods-select {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 30px;
+
+  }
+  #cuisines-select {
+    margin-top: 10px;
+  }
 }
 
-@media screen and (min-width: 840px){
-  .restaurants-list {
+
+@media screen and (min-width: 600px){
+  #restaurants-list {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
   }
 
   #restaurants-list li {
-    margin-right:10px;
+    max-width: 100%;
+    margin-right: 20px;
+    width: calc((100% - 40px)/3);
+
+  } 
+}
+
+@media screen and (min-width: 940px){
+  #restaurants-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #restaurants-list li {
+    max-width: 100%;
+    margin-right: 10px;
     width: calc((100% - 20px)/4);
+
   } 
 }
 
@@ -344,6 +372,17 @@ section {
     order: 3;
   }
   .inside #footer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+#breadcrumb {
+  width: 100%;
+  display: flex;
+  flex-wrap:wrap;
+  }
+  #breadcrumb li {
     width: 100%;
   }
 }
