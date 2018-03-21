@@ -3,16 +3,16 @@
 
   var filesToCache = [
     '/',
-    '../js/main.js', 
-    '../js/',
-    '../css/styles.css', 
-    '../images/', 
-    '../data/',
-    '../restaurant.html',
-    '../index.html'
+    'js/main.js', 
+    'js/',
+    'css/styles.css', 
+    'images/', 
+    'data/',
+    'restaurant.html',
+    'index.html'
   ];
 
-  var staticCacheName = 'restaurant-cache-v3';
+  var staticCacheName = 'restaurant-cache-v1';
 
   self.addEventListener('install', function(event) {
     console.log('Attempting to install service worker and cache static assets');
@@ -35,7 +35,7 @@
         console.log('Network request for ', event.request.url);
         return fetch(event.request).then(function(response) {
           if (response.status === 404) {
-            return caches.match('404.html');
+            return caches.match('../404.html');
           }
           return caches.open(staticCacheName).then(function(cache) {
             if (event.request.url.indexOf('test') < 0) {
