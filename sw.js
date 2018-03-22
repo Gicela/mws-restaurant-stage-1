@@ -4,12 +4,34 @@
   var filesToCache = [
     '/',
     'js/main.js', 
-    'js/',
+    'js/dbhelper.js',
+    'js/restaurant_info',
     'css/styles.css', 
-    'images/', 
-    'data/',
+    'images/1-309_medium_2x.jpg', 
+    'images/1-800_large_2x.jpg',
+    'images/2-309_medium_2x.jpg',
+    'images/2-800_large_2x.jpg',
+    'images/3-309_medium_2x.jpg',
+    'images/3-800_large_2x.jpg',
+    'images/4-309_medium_2x.jpg',
+    'images/4-800_large_2x.jpg',
+    'images/5-309_medium_2x.jpg',
+    'images/5-800_large_2x.jpg',
+    'images/6-309_medium_2x.jpg',
+    'images/6-800_large_2x.jpg',
+    'images/7-309_medium_2x.jpg',
+    'images/7-800_large_2x.jpg',
+    'images/8-309_medium_2x.jpg',
+    'images/8-800_large_2x.jpg',
+    'images/9-309_medium_2x.jpg',
+    'images/9-800_large_2x.jpg',
+    'images/10-309_medium_2x.jpg',
+    'images/10-800_large_2x.jpg',
+    'data/restaurants.json',
     'restaurant.html',
-    'index.html'
+    'index.html',
+    '404.html',
+    'offline.html'
   ];
 
   var staticCacheName = 'restaurant-cache-v1';
@@ -35,7 +57,7 @@
         console.log('Network request for ', event.request.url);
         return fetch(event.request).then(function(response) {
           if (response.status === 404) {
-            return caches.match('../404.html');
+            return caches.match('404.html');
           }
           return caches.open(staticCacheName).then(function(cache) {
             if (event.request.url.indexOf('test') < 0) {
