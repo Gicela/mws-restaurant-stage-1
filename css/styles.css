@@ -108,7 +108,7 @@ nav h1 a {
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
-  height: 50px;
+  height: 70px;
   background-color: #3397DB;
   align-items: center;
 }
@@ -265,7 +265,7 @@ nav h1 a {
   overflow: hidden;
   padding: 0 20px 20px;
   position: relative;
-  width: 85%;
+  width: 80%;
 }
 #reviews-list li p {
   margin: 0 0 10px;
@@ -353,8 +353,8 @@ section {
   } 
 }
 
-@media screen and (max-width: 840px) {
-  #maincontent {
+@media screen and (max-width: 870px) {
+  .inside #maincontent {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -378,15 +378,18 @@ section {
   .inside #footer {
     width: 100%;
   }
+  .inside #breadcrumb {
+    padding: 5px;
+    margin:0;
+    width: calc(100% - 200px)
+  }
+  .inside #breadcrumb li{
+    font-size: 3vmin;
+
+  }
+  .inside #restaurant-name,
+  .inside #reviews-container h2 {
+    font-size: 6vw;
+  }
 }
 
-@media screen and (max-width: 600px) {
-#breadcrumb {
-  width: 100%;
-  display: flex;
-  flex-wrap:wrap;
-  }
-  #breadcrumb li {
-    width: 100%;
-  }
-}
