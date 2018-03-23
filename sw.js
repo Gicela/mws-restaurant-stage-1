@@ -1,7 +1,6 @@
-(function() {
-  'use strict';
+var staticCacheName = 'restaurant-cache-v1';
 
-  var filesToCache = [
+var filesToCache = [
     '/',
     'js/main.js', 
     'js/dbhelper.js',
@@ -30,17 +29,16 @@
     'data/restaurants.json',
     'restaurant.html',
     'index.html',
-    '404.html',
-    'offline.html'
+    'https://maps.googleapis.com/maps/api/js?key=AIzaSyBpl2KDyqIaOiBU-E11ZjwMrH-rHgJNujg&libraries=places&callback=initMap'
   ];
 
-  var staticCacheName = 'restaurant-cache-v1';
 
   self.addEventListener('install', function(event) {
     console.log('Attempting to install service worker and cache static assets');
     event.waitUntil(
       caches.open(staticCacheName)
       .then(function(cache) {
+        console.log('Opened cache');
         return cache.addAll(filesToCache);
       })
     );
@@ -54,24 +52,11 @@
           console.log('Found ', event.request.url, ' in cache');
           return response;
         }
-        console.log('Network request for ', event.request.url);
-        return fetch(event.request).then(function(response) {
-          if (response.status === 404) {
-            return caches.match('404.html');
-          }
-          return caches.open(staticCacheName).then(function(cache) {
-            if (event.request.url.indexOf('test') < 0) {
-              cache.put(event.request.url, response.clone());
-            }
-            return response;
-          });
-        });
-      }).catch(function(error) {
-        console.log('Error, ', error);
-        return caches.match('offline.html');
-      })
-    );
-  });
+      }
+    )
+  )
+});
+
 
   self.addEventListener('activate', function(event) {
     console.log('Activating new service worker...');
@@ -91,6 +76,6 @@
     );
   });
 
-})();
+
 
 
