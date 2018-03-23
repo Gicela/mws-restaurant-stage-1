@@ -57,6 +57,12 @@ nav {
   background-color: #252831;
   text-align:center;
 }
+.aria-breadcrumb {
+  background-color: #eee;
+  width: calc(50% - 80px);
+  height:auto;
+}
+
 nav h1 {
   margin: auto;
 }
@@ -73,7 +79,8 @@ nav h1 a {
     background-color: #eee;
     font-size: 17px;
     margin: 0;
-    width: calc(50% - 80px);
+    width:100%;
+    text-align: left;
 }
 
 /* Display list items side by side */
@@ -245,7 +252,7 @@ nav h1 a {
 #reviews-container {
   padding: 30px 40px 80px;
 }
-#reviews-container h2 {
+#reviews-container h3 {
   color: #f58500;
   font-size: 24pt;
   font-weight: 300;
@@ -336,6 +343,7 @@ section {
     width: calc((100% - 40px)/3);
 
   } 
+
 }
 
 @media screen and (min-width: 940px){
@@ -378,10 +386,13 @@ section {
   .inside #footer {
     width: 100%;
   }
-  .inside #breadcrumb {
+  .inside .aria-breadcrumb {
+    width: calc(100% - 5px)
+  }
+  inside #breadcrumb {
     padding: 5px;
     margin:0;
-    width: calc(100% - 200px)
+    width: 100%;
   }
   .inside #breadcrumb li{
     font-size: 3vmin;
