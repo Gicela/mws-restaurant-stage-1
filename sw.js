@@ -44,17 +44,19 @@ var filesToCache = [
     );
   });
 
-  self.addEventListener('fetch', function(event) {
-    console.log('Fetch event for ', event.request.url);
-    event.respondWith(
-      caches.match(event.request).then(function(response) {
-        if (response) {
-          console.log('Found ', event.request.url, ' in cache');
+ 
+self.addEventListener('fetch', function(event) {
+  console.log('Fetch event for ', event.request.url);
+  event.respondWith(
+    caches.open('restaurant-cache-v1').then(function(cache) {
+      return cache.match(event.request).then(function (response) {
+        return response || fetch(event.request).then(function(response) {
+          cache.put(event.request, response.clone());
           return response;
-        }
-      }
-    )
-  )
+        });
+      });
+    })
+  );
 });
 
 
@@ -75,7 +77,3 @@ var filesToCache = [
       })
     );
   });
-
-
-
-
