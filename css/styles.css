@@ -351,6 +351,8 @@ section {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around; 
+    flex-flow: row wrap;
   }
 
   #restaurants-list li {
@@ -366,6 +368,8 @@ section {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around; 
+    flex-flow: row wrap;
   }
 
   .inside #map-container {
