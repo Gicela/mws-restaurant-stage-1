@@ -8,14 +8,14 @@ class DBHelper {
    * Change this to restaurants.json file location on your server.
    */
   static get DATABASE_URL() {
-    const port = 8000 // Change this to your server port
-    return `http://localhost:${port}/data/restaurants.json`;
+    const port = 1337 // Change this to your server port
+    return `http://localhost:${port}/restaurants`;
   }
 
   /**
    * Fetch all restaurants.
    */
-  static fetchRestaurants(callback) {
+ /**static fetchRestaurants(callback) {
     let xhr = new XMLHttpRequest();
     xhr.open('GET', DBHelper.DATABASE_URL);
     xhr.onload = () => {
@@ -30,6 +30,21 @@ class DBHelper {
     };
     xhr.send();
   }
+*/
+
+static fetchRestaurants(callback) {
+    fetch(DBHelper.DATABASE_URL)
+      .then(response => response.json())
+      .then(restaurants => callback(null,restaurants))
+      .catch(err => {
+        console.log(err)
+      }
+    );
+  }
+
+
+
+
 
   /**
    * Fetch a restaurant by its ID.
@@ -157,9 +172,9 @@ class DBHelper {
    */
   static imageUrlForRestaurant(restaurant) {
     if (screen.width >= 840 ) {
-      return (`/images/${restaurant.photograph}`);
+      return (`/images/${restaurant.photograph}`  + '.jpg');
       } else {
-      return (`/images/${restaurant.photograph_medium}`);
+      return (`/images/${restaurant.photograph_medium }` + '.jpg');
     }  
   } 
 
