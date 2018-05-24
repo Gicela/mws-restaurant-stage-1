@@ -174,7 +174,7 @@ static fetchRestaurants(callback) {
     if (screen.width >= 840 ) {
       return (`/images/${restaurant.photograph}`  + '.jpg');
       } else {
-      return (`/images/${restaurant.photograph_medium }` + '.jpg');
+      return (`/images/${restaurant.photograph}` + '.jpg');
     }  
   } 
 
